@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bot Control</title>
+  </head>
+  <body>
+    <h1>Bot Control</h1>
+    <button id="startStopButton">Start</button>
+
+    <script>
+      let isRunning = false;
+
+      document.getElementById('startStopButton').addEventListener('click', () => {
+        isRunning = !isRunning;
+        chrome.runtime.sendMessage({ action: isRunning ? 'start' : 'stop' });
+        document.getElementById('startStopButton').textContent = isRunning ? 'Stop' : 'Start';
+      });
+    </script>
+  </body>
+</html>

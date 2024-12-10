@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "XBVoter Bot",
+  "version": "1.0",
+  "description": "Bot do automatycznego odświeżania strony i klikania przycisku 'Start voter'.",
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://xbvoter.x1app.fyi/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
